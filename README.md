@@ -1,5 +1,5 @@
 # Project 5: Capstone
-Using the "SVM-KNN" technique to recognize handwritten digits.
+Using the "SVM-KNN" technique to recognize images of handwritten digits.
 
 ### Source Code
 - `/data` - folder containing the dataset
