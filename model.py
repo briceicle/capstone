@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from sklearn import cross_validation
+from sklearn import model_selection
 from sklearn import svm
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
@@ -34,8 +34,9 @@ y = y.values
 
 
 # Shuffle and split the dataset into the number of training and testing points above
-sss = cross_validation.StratifiedShuffleSplit(y, 3, test_size=0.4, random_state=42)
-for train_index, test_index in sss:
+sss = model_selection.StratifiedShuffleSplit( n_splits=3, test_size=0.4, random_state=42)
+sss.get_n_splits(X, y)
+for train_index, test_index in sss.split(X, y):
   X_train, X_test = X[train_index], X[test_index]
   y_train, y_test = y[train_index], y[test_index]
 
