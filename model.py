@@ -63,7 +63,7 @@ for idx, indices in enumerate(kneighbors):
     y_pred[idx] = neighbors_labels[0]
   else:
     # else fit a SVM classifier using the neighbors, and label the test samples
-    svm_clf = svm.SVC(C=0.5, kernel='rbf', decision_function_shape='ovo', random_state=42)
+    svm_clf = svm.SVC(C=0.5, kernel='rbf', decision_function_shape='ovo', random_state=42, gamma='auto')
     svm_clf.fit(neighbors, neighbors_labels)
     label = svm_clf.predict(X_test[idx].reshape(1, -1))
 
