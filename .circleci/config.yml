@@ -1,0 +1,13 @@
+version: 2.0
+jobs:
+  build:
+    working_directory: ~/derby-app
+    docker:
+      - image: circleci/node:10.15.1
+    steps:
+      - run: echo "this is the test job"
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
